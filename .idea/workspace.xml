@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="421fca0e-7ba3-48fe-84a7-48113c912bbe" name="Default Changelist" comment="" />
+    <list default="true" id="421fca0e-7ba3-48fe-84a7-48113c912bbe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,7 +22,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZQcGnSRMSNwtc4AxghtN7FRIBX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -77,7 +84,7 @@
       <workItem from="1584786156672" duration="11093000" />
       <workItem from="1584867873538" duration="1115000" />
       <workItem from="1584935135689" duration="2151000" />
-      <workItem from="1584954299008" duration="9879000" />
+      <workItem from="1584954299008" duration="10153000" />
     </task>
     <servers />
   </component>
@@ -85,6 +92,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="579" y="113" key="CommitChangelistDialog2" timestamp="1584968573759">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="579" y="113" key="CommitChangelistDialog2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584968573759" />
     <state x="1220" y="275" key="FileChooserDialogImpl" timestamp="1584955965598">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -109,6 +120,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="89" y="181" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584967676367" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1584968621647">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1584968621647" />
     <state x="1132" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1584954299354">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
