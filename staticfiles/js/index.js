@@ -1,19 +1,27 @@
 var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
 var options = { //지도를 생성할 때 필요한 기본 옵션
 	center: new kakao.maps.LatLng(35.562062, 129.337313), //지도의 중심좌표.
-	level: 1 //지도의 레벨(확대, 축소 정도)
+	level: 4 //지도의 레벨(확대, 축소 정도)
 };
 
 var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
 
 var array = [];
 var markers = [];
+var infowindows = [];
 
 // 배열에 추가된 마커들을 지도에 표시하거나 삭제하는 함수입니다
 function setMarkers(map) {
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
-    }
+	for (var i = 0; i < markers.length; i++) {
+		markers[i].setMap(map);
+	}
+}
+
+// 배열에 추가된 인포윈도우들을 지도에 삭제하는 함수
+function setInforwindows(){
+	for (var k = 0; k < infowindows.length; k++) {
+		infowindows[k].close();
+	}
 }
 
 $( "#searching" ).click(function() {
@@ -38,6 +46,7 @@ $( "#searching" ).click(function() {
 		success: function (api_data) {
 			var data = api_data['js_obj'];
 			setMarkers(null);
+			setInforwindows();
 
 			for(var j = 0; j < data.length; j++){
 				var pharmacy_cnt = parseInt(data[j]['count']);
@@ -83,7 +92,7 @@ $( "#searching" ).click(function() {
 					// 마커를 생성합니다
 					var marker = new kakao.maps.Marker({
 						map: map, // 마커를 표시할 지도
-						position: array[ii].latlng // 마커의 위치
+						position: array[ii].latlng, // 마커의 위치
 					});
 
 					// 마커를 배열에 추가
@@ -91,14 +100,17 @@ $( "#searching" ).click(function() {
 
 					// 마커에 표시할 인포윈도우를 생성합니다
 					var infowindow = new kakao.maps.InfoWindow({
-						content: array[ii].content // 인포윈도우에 표시할 내용
+						content: array[ii].content, // 인포윈도우에 표시할 내용
+						removable: true
 					});
+
+					infowindows.push(infowindow);
 
 					// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
 					// 이벤트 리스너로는 클로저를 만들어 등록합니다
 					// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-					kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-					kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
+					kakao.maps.event.addListener(marker, 'click', makeOverListener(map, marker, infowindow));
+
 				}
 				array.length = 0;
 
@@ -106,13 +118,6 @@ $( "#searching" ).click(function() {
 				function makeOverListener(map, marker, infowindow) {
 					return function() {
 						infowindow.open(map, marker);
-					};
-				}
-
-				// 인포윈도우를 닫는 클로저를 만드는 함수입니다
-				function makeOutListener(infowindow) {
-					return function() {
-						infowindow.close();
 					};
 				}
 			}
